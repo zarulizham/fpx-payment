@@ -179,7 +179,7 @@ class AuthEnquiry extends Message implements Contract
 		$this->currency = $response_value['fpx_txnCurrency'];
 		$this->checkSum = $response_value['fpx_checkSum'];
 
-		if (App::environment('production') || Config::get('fpx.should_verify_response'))
+		if (Config::get('fpx.should_verify_response'))
 			$this->verifySign($this->checkSum, $this->responseFormat());
 
 		$transaction = $this->saveTransaction();

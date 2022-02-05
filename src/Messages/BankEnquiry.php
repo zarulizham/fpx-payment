@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use JagdishJP\FpxPayment\Contracts\Message as Contract;
 
-class BankEnquiry extends Message implements Contract {
+class BankEnquiry extends Message implements Contract
+{
 
 	/**
 	 * Message code on the FPX side
@@ -21,7 +22,8 @@ class BankEnquiry extends Message implements Contract {
 	 */
 	public $url;
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 
 		$this->type = self::CODE;
@@ -36,7 +38,8 @@ class BankEnquiry extends Message implements Contract {
 	 * @param array $options
 	 * @return mixed
 	 */
-	public function handle(array $options) {
+	public function handle(array $options)
+	{
 		# code...
 	}
 
@@ -44,7 +47,8 @@ class BankEnquiry extends Message implements Contract {
 	 * get request data from
 	 *
 	 */
-	public function getData() {
+	public function getData()
+	{
 		return collect([
 			'fpx_msgType' => urlencode($this->type),
 			'fpx_msgToken' => urlencode($this->flow),
@@ -72,7 +76,8 @@ class BankEnquiry extends Message implements Contract {
 	 * Parse the bank list response
 	 *
 	 */
-	public function parseBanksList($response) {
+	public function parseBanksList($response)
+	{
 		if ($response == 'ERROR' || !$response) {
 			return false;
 		}
@@ -86,14 +91,14 @@ class BankEnquiry extends Message implements Contract {
 
 
 		$data = $response_value['fpx_bankList'] . "|" .
-						$response_value['fpx_msgToken'] . "|" .
-						$response_value['fpx_msgType']  . "|" .
-						$response_value['fpx_sellerExId'];
+			$response_value['fpx_msgToken'] . "|" .
+			$response_value['fpx_msgType']  . "|" .
+			$response_value['fpx_sellerExId'];
 
 		$checksum = $response_value['fpx_checkSum'];
 
-		if (App::environment('production') || Config::get('fpx.should_verify_response'))
-		$this->verifySign($checksum, $data);
+		if (Config::get('fpx.should_verify_response'))
+			$this->verifySign($checksum, $data);
 
 		$bankListToken = strtok($response_value['fpx_bankList'], ",");
 
@@ -113,7 +118,8 @@ class BankEnquiry extends Message implements Contract {
 	/**
 	 * Banks List
 	 */
-	public function getBanks($id = null) {
+	public function getBanks($id = null)
+	{
 		$banks = collect([
 			[
 				"bank_id" => "ABB0233",
@@ -246,7 +252,8 @@ class BankEnquiry extends Message implements Contract {
 		return $banks->firstWhere('bank_id', $id);
 	}
 
-	public function getTestingBanks() {
+	public function getTestingBanks()
+	{
 		if (App::environment('production')) {
 			return [];
 		}
@@ -397,7 +404,8 @@ class BankEnquiry extends Message implements Contract {
 	 * Format data for checksum
 	 * @return string
 	 */
-	public function format() {
+	public function format()
+	{
 		$list = collect([
 			$this->flow ?? '',
 			$this->type ?? '',

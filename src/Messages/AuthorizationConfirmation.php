@@ -57,7 +57,7 @@ class AuthorizationConfirmation extends Message implements Contract
 		$this->checkSum = @$options['fpx_checkSum'];
 
 		try {
-			if (App::environment('production') || Config::get('fpx.should_verify_response'))
+			if (Config::get('fpx.should_verify_response'))
 				$this->verifySign($this->checkSum, $this->format());
 
 			$transaction = $this->saveTransaction();
