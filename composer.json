@@ -1,21 +1,21 @@
 {
-	"name": "jagdish-j-p/fpx-payment",
+	"name": "zarulizham/fpx-payment",
 	"description": "A laravel implementation for FPX payment service",
 	"keywords": [
-		"jagdish-j-p",
+		"zarulizham",
 		"FPX",
+		"PayNet",
 		"FPX Payment Gateway",
 		"FPX Pay",
 		"fpx-payment",
 		"Malaysian Payment Gateway"
 	],
-	"homepage": "https://github.com/jagdish-j-p/fpx-payment",
+	"homepage": "https://github.com/zarulizham/fpx-payment",
 	"license": "MIT",
 	"type": "library",
-	"authors": [
-		{
-			"name": "Jagdish J P",
-			"email": "jagdish1230@gmail.com",
+	"authors": [{
+			"name": "Zarul Zubir",
+			"email": "zarul.izham@gmail.com",
 			"role": "Owner"
 		},
 		{
