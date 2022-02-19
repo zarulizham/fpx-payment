@@ -2,12 +2,13 @@
 
 namespace JagdishJP\FpxPayment\Messages;
 
-use JagdishJP\FpxPayment\Contracts\Message as Contract;
-use JagdishJP\FpxPayment\Traits\VerifyCertificate;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Validator;
 use JagdishJP\FpxPayment\Models\FpxTransaction;
+use JagdishJP\FpxPayment\Traits\VerifyCertificate;
+use JagdishJP\FpxPayment\Events\FpxTransactionUpdated;
+use JagdishJP\FpxPayment\Contracts\Message as Contract;
 
 class AuthorizationRequest extends Message implements Contract
 {
@@ -140,5 +141,7 @@ class AuthorizationRequest extends Message implements Contract
 		$transaction->additional_params = $this->additionalParams;
 		$transaction->request_payload = $this->list()->toJson();
 		$transaction->save();
+
+		event(new FpxTransactionUpdated($transaction));
 	}
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use JagdishJP\FpxPayment\Constant\Response;
 use JagdishJP\FpxPayment\Models\FpxTransaction;
+use JagdishJP\FpxPayment\Events\FpxTransactionUpdated;
 use JagdishJP\FpxPayment\Contracts\Message as Contract;
 use JagdishJP\FpxPayment\Exceptions\InvalidCertificateException;
 
@@ -177,6 +178,7 @@ class AuthorizationConfirmation extends Message implements Contract
 		$transaction->debit_auth_code = $this->debitResponseStatus;
 		$transaction->response_payload = $this->list()->toJson();
 		$transaction->save();
+		event(new FpxTransactionUpdated($transaction));
 
 		return $transaction;
 	}
