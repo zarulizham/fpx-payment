@@ -51,8 +51,7 @@ class Fpx
 				throw $e;
 			}
 		}
-
-		return Bank::all()->sortBy('name')->pluck('name', 'bank_id');
+		return Bank::select('name', 'bank_id', 'short_name', 'status')->orderBy('name')->get()->toArray();
 	}
 
 	/**

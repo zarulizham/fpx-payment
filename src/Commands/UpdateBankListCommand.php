@@ -43,8 +43,11 @@ class UpdateBankListCommand extends Command
 
 		$dataList = $handler->getData();
 
+
+
 		try {
 			$response = $handler->connect($dataList);
+
 			$token = strtok($response, "&");
 			$bankList = $handler->parseBanksList($token);
 
