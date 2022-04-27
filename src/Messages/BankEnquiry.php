@@ -120,18 +120,24 @@ class BankEnquiry extends Message implements Contract
 	 */
 	public function getBanks($id = null)
 	{
-		$banks = collect([
+		$banks = collect(
 			[
-				"bank_id" => "ABB0233",
+				"bank_id" => "ABB0234",
 				"status" => "offline",
 				"name" => "Affin Bank Berhad",
-				"short_name" => "Affin Bank"
+				"short_name" => "Affin Bank Berhad"
 			],
 			[
 				"bank_id" => "ABMB0212",
 				"status" => "offline",
 				"name" => "Alliance Bank Malaysia Berhad",
 				"short_name" => "Alliance Bank (Personal)"
+			],
+			[
+				"bank_id" => "AGRO01",
+				"status" => "offline",
+				"name" => "BANK PERTANIAN MALAYSIA BERHAD (AGROBANK)",
+				"short_name" => "AGRONet"
 			],
 			[
 				"bank_id" => "AMBB0209",
@@ -168,12 +174,6 @@ class BankEnquiry extends Message implements Contract
 				"status" => "offline",
 				"name" => "CIMB Bank Berhad",
 				"short_name" => "CIMB Clicks"
-			],
-			[
-				"bank_id" => "CIT0219",
-				"status" => "offline",
-				"name" => "CITIBANK BHD",
-				"short_name" => "Citibank"
 			],
 			[
 				"bank_id" => "HLB0224",
@@ -224,30 +224,19 @@ class BankEnquiry extends Message implements Contract
 				"short_name" => "RHB Bank"
 			],
 			[
+
 				"bank_id" => "SCB0216",
 				"status" => "offline",
 				"name" => "Standard Chartered Bank",
 				"short_name" => "Standard Chartered"
 			],
 			[
-				"bank_id" => "UOB0226",
+				"bank_id" => "UOB0229",
 				"status" => "offline",
-				"name" => "United Overseas Bank",
+				"name" => "United Overseas Bank - B2C Test",
 				"short_name" => "UOB Bank"
 			],
-			[
-				"bank_id" => "AGRO01",
-				"status" => "offline",
-				"name" => "BANK PERTANIAN MALAYSIA BERHAD (AGROBANK)",
-				"short_name" => "AGRONet"
-			],
-			[
-				"bank_id" => "BOCM01",
-				"status" => "offline",
-				"name" => "Bank Of China (M) Berhad",
-				"short_name" => "Bank Of China"
-			],
-		]);
+		);
 
 		$banks = $banks->merge($this->getTestingBanks());
 
@@ -268,7 +257,7 @@ class BankEnquiry extends Message implements Contract
 			[
 				"bank_id" => "ABB0234",
 				"status" => "offline",
-				"name" => "Affin Bank Berhad B2C  - Test ID",
+				"name" => "Affin Bank Berhad B2C - Test ID",
 				"short_name" => "Affin B2C - Test ID"
 			],
 			[
@@ -282,6 +271,12 @@ class BankEnquiry extends Message implements Contract
 				"status" => "offline",
 				"name" => "Alliance Bank Malaysia Berhad",
 				"short_name" => "Alliance Bank (Personal)"
+			],
+			[
+				"bank_id" => "AGRO01",
+				"status" => "offline",
+				"name" => "BANK PERTANIAN MALAYSIA BERHAD (AGROBANK)",
+				"short_name" => "AGRONet"
 			],
 			[
 				"bank_id" => "AMBB0209",
@@ -308,6 +303,12 @@ class BankEnquiry extends Message implements Contract
 				"short_name" => "Bank Rakyat"
 			],
 			[
+				"bank_id" => "BOCM01",
+				"status" => "offline",
+				"name" => "Bank Of China (M) Berhad",
+				"short_name" => "Bank Of China"
+			],
+			[
 				"bank_id" => "BSN0601",
 				"status" => "offline",
 				"name" => "Bank Simpanan Nasional",
@@ -322,7 +323,7 @@ class BankEnquiry extends Message implements Contract
 			[
 				"bank_id" => "CIT0219",
 				"status" => "offline",
-				"name" => "CITIBANK BHD",
+				"name" => "CITI Bank Berhad",
 				"short_name" => "Citibank"
 			],
 			[
@@ -342,6 +343,12 @@ class BankEnquiry extends Message implements Contract
 				"status" => "offline",
 				"name" => "Kuwait Finance House (Malaysia) Berhad",
 				"short_name" => "KFH"
+			],
+			[
+				"bank_id" => "MBB0228",
+				"status" => "offline",
+				"name" => "Malayan Banking Berhad (M2E)",
+				"short_name" => "Maybank2E"
 			],
 			[
 				"bank_id" => "MB2U0227",
@@ -401,8 +408,8 @@ class BankEnquiry extends Message implements Contract
 				"bank_id" => "UOB0229",
 				"status" => "offline",
 				"name" => "United Overseas Bank - B2C Test",
-				"short_name" => "UOB Bank Test ID"
-			]
+				"short_name" => "UOB Bank - Test ID"
+			],
 		];
 	}
 
