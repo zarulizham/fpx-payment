@@ -69,7 +69,8 @@ class UpdateBankListCommand extends Command
 				Bank::updateOrCreate(['bank_id' => $bankId], [
 					'status' => $status == 'A' ? 'Online' : 'Offline',
 					'name' => $bank['name'],
-					'short_name' => $bank['short_name']
+					'short_name' => $bank['short_name'],
+					'type' => $bank['type'] ?? [],
 				]);
 
 				$bar->advance();

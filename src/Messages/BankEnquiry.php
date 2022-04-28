@@ -125,13 +125,15 @@ class BankEnquiry extends Message implements Contract
 				"bank_id" => "ABB0234",
 				"status" => "offline",
 				"name" => "Affin Bank Berhad",
-				"short_name" => "Affin Bank Berhad"
+				"short_name" => "Affin Bank Berhad",
+				'type' => ['B2B'],
 			],
 			[
 				"bank_id" => "ABMB0212",
 				"status" => "offline",
 				"name" => "Alliance Bank Malaysia Berhad",
-				"short_name" => "Alliance Bank (Personal)"
+				"short_name" => "Alliance Bank (Personal)",
+				'type' => ['B2C'],
 			],
 			[
 				"bank_id" => "AGRO01",
@@ -258,157 +260,281 @@ class BankEnquiry extends Message implements Contract
 				"bank_id" => "ABB0234",
 				"status" => "offline",
 				"name" => "Affin Bank Berhad B2C - Test ID",
-				"short_name" => "Affin B2C - Test ID"
+				"short_name" => "Affin B2C - Test ID",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "ABB0233",
 				"status" => "offline",
 				"name" => "Affin Bank Berhad",
-				"short_name" => "Affin Bank"
+				"short_name" => "Affin Bank",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "ABMB0212",
 				"status" => "offline",
 				"name" => "Alliance Bank Malaysia Berhad",
-				"short_name" => "Alliance Bank (Personal)"
+				"short_name" => "Alliance Bank (Personal)",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "AGRO01",
 				"status" => "offline",
 				"name" => "BANK PERTANIAN MALAYSIA BERHAD (AGROBANK)",
-				"short_name" => "AGRONet"
+				"short_name" => "AGRONet",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "AMBB0209",
 				"status" => "offline",
 				"name" => "AmBank Malaysia Berhad",
-				"short_name" => "AmBank"
+				"short_name" => "AmBank",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "BIMB0340",
 				"status" => "offline",
 				"name" => "Bank Islam Malaysia Berhad",
-				"short_name" => "Bank Islam"
+				"short_name" => "Bank Islam",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "BMMB0341",
 				"status" => "offline",
 				"name" => "Bank Muamalat Malaysia Berhad",
-				"short_name" => "Bank Muamalat "
+				"short_name" => "Bank Muamalat ",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "BKRM0602",
 				"status" => "offline",
 				"name" => "Bank Kerjasama Rakyat Malaysia Berhad ",
-				"short_name" => "Bank Rakyat"
+				"short_name" => "Bank Rakyat",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "BOCM01",
 				"status" => "offline",
 				"name" => "Bank Of China (M) Berhad",
-				"short_name" => "Bank Of China"
+				"short_name" => "Bank Of China",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "BSN0601",
 				"status" => "offline",
 				"name" => "Bank Simpanan Nasional",
-				"short_name" => "BSN"
+				"short_name" => "BSN",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "BCBB0235",
 				"status" => "offline",
 				"name" => "CIMB Bank Berhad",
-				"short_name" => "CIMB Clicks"
+				"short_name" => "CIMB Clicks",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "CIT0219",
 				"status" => "offline",
 				"name" => "CITI Bank Berhad",
-				"short_name" => "Citibank"
+				"short_name" => "Citibank",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "HLB0224",
 				"status" => "offline",
 				"name" => "Hong Leong Bank Berhad",
-				"short_name" => "Hong Leong Bank"
+				"short_name" => "Hong Leong Bank",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "HSBC0223",
 				"status" => "offline",
 				"name" => "HSBC Bank Malaysia Berhad",
-				"short_name" => "HSBC Bank"
+				"short_name" => "HSBC Bank",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "KFH0346",
 				"status" => "offline",
 				"name" => "Kuwait Finance House (Malaysia) Berhad",
-				"short_name" => "KFH"
+				"short_name" => "KFH",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "MBB0228",
 				"status" => "offline",
 				"name" => "Malayan Banking Berhad (M2E)",
-				"short_name" => "Maybank2E"
+				"short_name" => "Maybank2E",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "MB2U0227",
 				"status" => "offline",
 				"name" => "Malayan Banking Berhad (M2U)",
-				"short_name" => "Maybank2U"
+				"short_name" => "Maybank2U",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "OCBC0229",
 				"status" => "offline",
 				"name" => "OCBC Bank Malaysia Berhad",
-				"short_name" => "OCBC Bank"
+				"short_name" => "OCBC Bank",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "PBB0233",
 				"status" => "offline",
 				"name" => "Public Bank Berhad",
-				"short_name" => "Public Bank"
+				"short_name" => "Public Bank",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "RHB0218",
 				"status" => "offline",
 				"name" => "RHB Bank Berhad",
-				"short_name" => "RHB Bank"
+				"short_name" => "RHB Bank",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "TEST0021",
 				"status" => "offline",
 				"name" => "SBI Bank A",
-				"short_name" => "SBI Bank A"
+				"short_name" => "SBI Bank A",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "TEST0022",
 				"status" => "offline",
 				"name" => "SBI Bank B",
-				"short_name" => "SBI Bank B"
+				"short_name" => "SBI Bank B",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "TEST0023",
 				"status" => "offline",
 				"name" => "SBI Bank C",
-				"short_name" => "SBI Bank C"
+				"short_name" => "SBI Bank C",
+				"type" => ["B2C", "B2B"]
 			],
 			[
 				"bank_id" => "SCB0216",
 				"status" => "offline",
 				"name" => "Standard Chartered Bank",
-				"short_name" => "Standard Chartered"
+				"short_name" => "Standard Chartered",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "UOB0226",
 				"status" => "offline",
 				"name" => "United Overseas Bank",
-				"short_name" => "UOB Bank"
+				"short_name" => "UOB Bank",
+				"type" => ["B2C"]
 			],
 			[
 				"bank_id" => "UOB0229",
 				"status" => "offline",
 				"name" => "United Overseas Bank - B2C Test",
-				"short_name" => "UOB Bank - Test ID"
+				"short_name" => "UOB Bank - Test ID",
+				"type" => ["B2C"]
+			],
+			[
+				"bank_id" => "ABB0232",
+				"status" => "offline",
+				"name" => "Affin Bank Berhad",
+				"short_name" => "Affin Bank Berhad",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "ABB0235",
+				"status" => "offline",
+				"name" => "Affin Bank Berhad B2B",
+				"short_name" => "AFFINMAX",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "ABMB0213",
+				"status" => "offline",
+				"name" => "Alliance Bank Malaysia Berhad",
+				"short_name" => "Alliance Bank (Business)",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "AGRO02",
+				"status" => "offline",
+				"name" => "BANK PERTANIAN MALAYSIA BERHAD (AGROBANK)",
+				"short_name" => "AGRONetBIZ",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "AMBB0208",
+				"status" => "offline",
+				"name" => "AmBank Malaysia Berhad",
+				"short_name" => "AmBank",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "BMMB0342",
+				"status" => "offline",
+				"name" => "Bank Muamalat Malaysia Berhad",
+				"short_name" => "Bank Muamalat ",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "BNP003",
+				"status" => "offline",
+				"name" => "BNP Paribas Malaysian Berhad",
+				"short_name" => "BNP Paribas",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "CIT0218",
+				"status" => "offline",
+				"name" => "CITI Bank Berhad",
+				"short_name" => "Citibank Corporate Banking",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "DBB0199",
+				"status" => "offline",
+				"name" => "Deutsche Bank Berhad",
+				"short_name" => "Deutsche Bank",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "BKRM0602",
+				"status" => "offline",
+				"name" => "Bank Kerjasama Rakyat Malaysia Berhad",
+				"short_name" => "i-bizRAKYAT",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "OCBC0228",
+				"status" => "offline",
+				"name" => "OCBC Bank Malaysia Berhad",
+				"short_name" => "OCBC Bank",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "PBB0234",
+				"status" => "offline",
+				"name" => "Public Bank Enterprise",
+				"short_name" => "Public Bank PB enterprise",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "SCB0215",
+				"status" => "offline",
+				"name" => "Standard Chartered Bank",
+				"short_name" => "Standard Chartered",
+				"type" => ["B2B"]
+			],
+			[
+				"bank_id" => "UOB0228",
+				"status" => "offline",
+				"name" => "United Overseas Bank - B2B Regional",
+				"short_name" => "UOB Regional",
+				"type" => ["B2B"]
 			],
 		];
 	}

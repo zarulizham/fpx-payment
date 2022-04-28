@@ -44,14 +44,15 @@ class Fpx
 					Bank::updateOrCreate(['bank_id' => $bankId], [
 						'status' => $status == 'A' ? 'Online' : 'Offline',
 						'name' => $bank['name'],
-						'short_name' => $bank['short_name']
+						'short_name' => $bank['short_name'],
+						'type' => $bank['type'] ?? [],
 					]);
 				}
 			} catch (Exception $e) {
 				throw $e;
 			}
 		}
-		return Bank::select('name', 'bank_id', 'short_name', 'status')->orderBy('short_name')->get()->toArray();
+		return Bank::select('name', 'bank_id', 'short_name', 'status')->orderBy('short_name', 'ASC')->get()->toArray();
 	}
 
 	/**
