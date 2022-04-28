@@ -4,7 +4,8 @@ namespace JagdishJP\FpxPayment\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bank extends Model {
+class Bank extends Model
+{
 
 	public const STATUS_ONLINE = 'Online';
 	public const STATUS_OFFLINE = 'Offline';
@@ -21,11 +22,20 @@ class Bank extends Model {
 		'status',
 	];
 
-	public function isOnline() {
+	/**
+	 * The attributes that should be hidden for arrays.
+	 *
+	 * @var array
+	 */
+	protected $hidden = ['created_at', 'updated_at'];
+
+	public function isOnline()
+	{
 		return $this->status === self::STATUS_ONLINE;
 	}
 
-	public function isOffline() {
+	public function isOffline()
+	{
 		return $this->status === self::STATUS_OFFLINE;
 	}
 
