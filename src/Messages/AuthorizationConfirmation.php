@@ -170,13 +170,13 @@ class AuthorizationConfirmation extends Message implements Contract
 		$transaction = FpxTransaction::where(['unique_id' => $this->id])->firstOrNew();
 
 		$transaction->reference_id = $this->reference;
-		$transaction->request_payload = $transaction->request_payload ?? '';
+		$transaction->request_payload = json_decode($transaction->request_payload) ?? '';
 		$transaction->response_format = $transaction->response_format ?? '';
 		$transaction->additional_params = $transaction->additional_params ?? '';
 		$transaction->unique_id = $this->id;
 		$transaction->transaction_id = $this->foreignId;
 		$transaction->debit_auth_code = $this->debitResponseStatus;
-		$transaction->response_payload = $this->list()->toJson();
+		$transaction->response_payload = json_decode($this->list()->toJson());
 		$transaction->save();
 		event(new FpxTransactionUpdated($transaction));
 

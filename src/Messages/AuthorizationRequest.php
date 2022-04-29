@@ -139,7 +139,7 @@ class AuthorizationRequest extends Message implements Contract
 		$transaction->reference_id = $this->reference;
 		$transaction->response_format = $this->responseFormat;
 		$transaction->additional_params = $this->additionalParams;
-		$transaction->request_payload = $this->list()->toJson();
+		$transaction->request_payload = json_decode($this->list()->toJson());
 		$transaction->save();
 
 		event(new FpxTransactionUpdated($transaction));
