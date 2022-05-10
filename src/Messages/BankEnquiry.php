@@ -111,6 +111,8 @@ class BankEnquiry extends Message implements Contract
 			$bankListToken = strtok(",");
 		}
 
+		\Log::debug($bankList);
+
 		return $bankList;
 	}
 
@@ -168,7 +170,7 @@ class BankEnquiry extends Message implements Contract
 				"status" => "offline",
 				"name" => "Bank Kerjasama Rakyat Malaysia Berhad ",
 				"short_name" => "Bank Rakyat",
-				"type" => ["B2C"],
+				"type" => ["B2C", "B2B"],
 			],
 			[
 				"bank_id" => "BSN0601",
@@ -224,7 +226,7 @@ class BankEnquiry extends Message implements Contract
 				"status" => "offline",
 				"name" => "OCBC Bank Malaysia Berhad",
 				"short_name" => "OCBC Bank",
-				"type" => ["B2C"],
+				"type" => ["B2C", "B2B"],
 			],
 			[
 				"bank_id" => "PBB0233",
@@ -310,20 +312,13 @@ class BankEnquiry extends Message implements Contract
 				"short_name" => "Deutsche Bank",
 				"type" => ["B2B"],
 			],
-			[
-				"bank_id" => "BKRM0602",
-				"status" => "offline",
-				"name" => "Bank Kerjasama Rakyat Malaysia Berhad",
-				"short_name" => "i-bizRAKYAT",
-				"type" => ["B2B"],
-			],
-			[
-				"bank_id" => "OCBC0228",
-				"status" => "offline",
-				"name" => "OCBC Bank Malaysia Berhad",
-				"short_name" => "OCBC Bank",
-				"type" => ["B2B"],
-			],
+			// [
+			// 	"bank_id" => "BKRM0602",
+			// 	"status" => "offline",
+			// 	"name" => "Bank Kerjasama Rakyat Malaysia Berhad",
+			// 	"short_name" => "i-bizRAKYAT",
+			// 	"type" => ["B2B"],
+			// ],
 			[
 				"bank_id" => "PBB0234",
 				"status" => "offline",
@@ -424,7 +419,7 @@ class BankEnquiry extends Message implements Contract
 				"status" => "offline",
 				"name" => "Bank Kerjasama Rakyat Malaysia Berhad ",
 				"short_name" => "Bank Rakyat",
-				"type" => ["B2C"],
+				"type" => ["B2C", "B2B"],
 			],
 			[
 				"bank_id" => "BOCM01",
@@ -494,7 +489,7 @@ class BankEnquiry extends Message implements Contract
 				"status" => "offline",
 				"name" => "OCBC Bank Malaysia Berhad",
 				"short_name" => "OCBC Bank",
-				"type" => ["B2C"],
+				"type" => ["B2C", "B2B"],
 			],
 			[
 				"bank_id" => "PBB0233",
@@ -615,20 +610,13 @@ class BankEnquiry extends Message implements Contract
 				"short_name" => "Deutsche Bank",
 				"type" => ["B2B"],
 			],
-			[
-				"bank_id" => "BKRM0602",
-				"status" => "offline",
-				"name" => "Bank Kerjasama Rakyat Malaysia Berhad",
-				"short_name" => "i-bizRAKYAT",
-				"type" => ["B2B"],
-			],
-			[
-				"bank_id" => "OCBC0228",
-				"status" => "offline",
-				"name" => "OCBC Bank Malaysia Berhad",
-				"short_name" => "OCBC Bank",
-				"type" => ["B2B"],
-			],
+			// [
+			// 	"bank_id" => "BKRM0602",
+			// 	"status" => "offline",
+			// 	"name" => "Bank Kerjasama Rakyat Malaysia Berhad",
+			// 	"short_name" => "i-bizRAKYAT",
+			// 	"type" => ["B2B"],
+			// ],
 			[
 				"bank_id" => "PBB0234",
 				"status" => "offline",
