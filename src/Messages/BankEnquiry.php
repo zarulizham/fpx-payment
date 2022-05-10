@@ -364,6 +364,13 @@ class BankEnquiry extends Message implements Contract
 
 		return [
 			[
+				"bank_id" => "LOAD001",
+				"status" => "offline",
+				"name" => "LOAD001",
+				"short_name" => "LOAD001",
+				"type" => ["B2C"],
+			],
+			[
 				"bank_id" => "ABB0234",
 				"status" => "offline",
 				"name" => "Affin Bank Berhad B2C - Test ID",
