@@ -26,7 +26,7 @@ class PaymentController extends Controller
 
 	public function banks(Request $request)
 	{
-		$banks = Bank::query()->select('bank_id', 'name', 'short_name');
+		$banks = Bank::query()->select('bank_id', 'name', 'short_name', 'status');
 
 		if ($request->type) {
 			$banks->types($request->type == '01' ? ['B2C'] : ['B2B']);
