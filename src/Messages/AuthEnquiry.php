@@ -63,21 +63,21 @@ class AuthEnquiry extends Message implements Contract
 
 		$tranction = FpxTransaction::where('reference_id', $data['reference_id'])->firstOrfail();
 
-		$data = json_decode($tranction->request_payload, true);
+		$data = $tranction->request_payload;
 
 		$this->type = self::CODE;
-		$this->flow = $data['flow'];
-		$this->reference = $data['reference'];
-		$this->timestamp = $data['timestamp'];
-		$this->currency = $data['currency'];
-		$this->productDescription = $data['productDescription'];
-		$this->amount = $data['amount'];
-		$this->buyerEmail = $data['buyerEmail'];
-		$this->buyerName = $data['buyerName'];
-		$this->targetBankId = $data['buyerId'];
-		$this->id = $data['id'];
+		$this->flow = $data->flow;
+		$this->reference = $data->reference;
+		$this->timestamp = $data->timestamp;
+		$this->currency = $data->currency;
+		$this->productDescription = $data->productDescription;
+		$this->amount = $data->amount;
+		$this->buyerEmail = $data->buyerEmail;
+		$this->buyerName = $data->buyerName;
+		$this->targetBankId = $data->buyerId;
+		$this->id = $data->id;
 		$this->checkSum = $this->getCheckSum($this->format());
-		$this->responseFormat = $data['response_format'] ?? 'HTML';
+		$this->responseFormat = $data->response_format ?? 'HTML';
 		$this->additionalParams = $tranction->additional_params;
 
 		return $this;
