@@ -97,7 +97,7 @@ class BankEnquiry extends Message implements Contract
 
         $checksum = $response_value['fpx_checkSum'];
 
-        if (App::environment('production') || Config::get('fpx.should_verify_response')) {
+        if (Config::get('fpx.should_verify_response')) {
             $this->verifySign($checksum, $data);
         }
 
