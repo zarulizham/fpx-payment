@@ -11,7 +11,6 @@ use JagdishJP\FpxPayment\Contracts\Message as Contract;
 
 class BankEnquiry extends Message implements Contract
 {
-
     /**
      * Message code on the FPX side
      */
@@ -22,11 +21,12 @@ class BankEnquiry extends Message implements Contract
      */
     public $url;
 
-    public function __construct()
+    public function __construct($flow = null)
     {
         parent::__construct();
 
         $this->type = self::CODE;
+        $this->flow = $flow ?? $this->flow;
         $this->url = App::environment('production') ?
             Config::get('fpx.urls.production.bank_enquiry') :
             Config::get('fpx.urls.uat.bank_enquiry');

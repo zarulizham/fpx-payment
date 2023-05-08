@@ -13,7 +13,7 @@ class UpdateBankListCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'fpx:banks';
+    protected $signature = 'fpx:banks {--flow=01}';
 
     /**
      * The console command description.
@@ -39,7 +39,7 @@ class UpdateBankListCommand extends Command
      */
     public function handle()
     {
-        $handler = new BankEnquiry;
+        $handler = new BankEnquiry($this->option('flow'));
 
         $dataList = $handler->getData();
 
