@@ -13,7 +13,7 @@ class UpdateBankListCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'fpx:banks {--flow=01}';
+    protected $signature = 'fpx:banks {--flow=01} {--debug=false}';
 
     /**
      * The console command description.
@@ -43,13 +43,18 @@ class UpdateBankListCommand extends Command
 
         $dataList = $handler->getData();
 
-
-
         try {
             $response = $handler->connect($dataList);
 
             $token = strtok($response, "&");
             $bankList = $handler->parseBanksList($token);
+
+            if ($this->option('debug')) {
+                \Log::debug([
+                    'data_list' => $dataList->toJson(),
+                    'response' => $response,
+                ]);
+            }
 
             if ($bankList === false) {
                 $this->error('We could not find any data');
@@ -72,8 +77,6 @@ class UpdateBankListCommand extends Command
                     'short_name' => $bank['short_name'],
                     'type' => $bank['type'] ?? [],
                 ]);
-
-
 
                 $bar->advance();
             }
