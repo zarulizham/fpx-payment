@@ -128,7 +128,7 @@ class BankEnquiry extends Message implements Contract
                 "bank_id" => "ABB0234",
                 "status" => "offline",
                 "name" => "Affin Bank Berhad",
-                "short_name" => "Affin Bank Berhad",
+                "short_name" => "Affin Bank",
                 "type" => ["B2C"],
             ], [
                 "bank_id" => "ABMB0212",
@@ -402,7 +402,7 @@ class BankEnquiry extends Message implements Contract
                 "status" => "offline",
                 "name" => "Bank Kerjasama Rakyat Malaysia Berhad ",
                 "short_name" => "Bank Rakyat",
-                "type" => ["B2C", "B2B"],
+                "type" => ["B2C"],
             ],
             [
                 "bank_id" => "BOCM01",
@@ -534,7 +534,7 @@ class BankEnquiry extends Message implements Contract
                 "bank_id" => "ABB0232",
                 "status" => "offline",
                 "name" => "Affin Bank Berhad",
-                "short_name" => "Affin Bank Berhad",
+                "short_name" => "Affin Bank",
                 "type" => ["B2B"],
             ],
             [
