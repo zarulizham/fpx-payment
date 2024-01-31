@@ -4,6 +4,7 @@ namespace JagdishJP\FpxPayment\Models;
 
 use JagdishJP\FpxPayment\Models\Bank;
 use Illuminate\Database\Eloquent\Model;
+use JagdishJP\FpxPayment\Constant\Response;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -37,4 +38,9 @@ class FpxTransaction extends Model
 	{
 		return $this->belongsTo(Bank::class, 'request_payload->targetBankId', 'bank_id');
 	}
+
+    public function getResponseCodeDescriptionAttribute()
+    {
+        return Response::STATUS[$this->debit_auth_code];
+    }
 }
