@@ -36,7 +36,7 @@ class PaymentController extends Controller
 			$banks->where('name', 'LIKE', "%$request->name%");
 		}
 
-		$banks = $banks->orderBy('name', 'ASC')->get();
+		$banks = $banks->orderBy('short_name', 'ASC')->get();
 
 		return response()->json([
 			'banks' => $banks,
