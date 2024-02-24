@@ -291,7 +291,7 @@ class AuthEnquiry extends Message implements Contract
 
         $transaction->transaction_id = $this->foreignId;
         $transaction->debit_auth_code = $this->debitResponseStatus;
-        $transaction->response_payload = $this->responseList()->toJson();
+        $transaction->response_payload = $this->responseList()->toArray();
         $transaction->save();
 
         return $transaction;
