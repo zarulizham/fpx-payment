@@ -35,6 +35,8 @@ class AuthEnquiry extends Message implements Contract
      */
     public $url;
 
+    public $makerName;
+
 
     public function __construct()
     {
