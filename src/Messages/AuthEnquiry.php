@@ -64,7 +64,7 @@ class AuthEnquiry extends Message implements Contract
 
         $tranction = FpxTransaction::query()
             ->where('reference_id', $data['reference_id'])
-            ->when(isset($options['unique_id']), function ($q) use ($options) {
+            ->when(isset($options['unique_id']) && $options['unique_id'], function ($q) use ($options) {
                 $q->where('unique_id', $options['unique_id']);
             })
             ->latest()

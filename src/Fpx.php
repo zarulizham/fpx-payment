@@ -61,7 +61,7 @@ class Fpx
 	 * @param string $reference_id reference order id
 	 * @return array
 	 */
-	public static function getTransactionStatus(string $reference_id, ?string $unique_id)
+	public static function getTransactionStatus(string $reference_id, ?string $unique_id = null)
 	{
 		try {
 			$authEnquiry = new AuthEnquiry;
