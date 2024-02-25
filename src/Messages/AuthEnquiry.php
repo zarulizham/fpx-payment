@@ -67,6 +67,7 @@ class AuthEnquiry extends Message implements Contract
             ->when(isset($options['unique_id']), function ($q) use ($options) {
                 $q->where('unique_id', $options['unique_id']);
             })
+            ->latest()
             ->firstOrFail();
 
         $data = $tranction->request_payload;
