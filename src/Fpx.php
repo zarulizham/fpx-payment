@@ -61,11 +61,11 @@ class Fpx
 	 * @param string $reference_id reference order id
 	 * @return array
 	 */
-	public static function getTransactionStatus(string $reference_id)
+	public static function getTransactionStatus(string $reference_id, ?string $unique_id)
 	{
 		try {
 			$authEnquiry = new AuthEnquiry;
-			$authEnquiry->handle(compact('reference_id'));
+			$authEnquiry->handle(compact('reference_id', 'unique_id'));
 
 			$dataList = $authEnquiry->getData();
 			$response = $authEnquiry->connect($dataList);

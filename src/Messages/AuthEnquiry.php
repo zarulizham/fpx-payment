@@ -62,7 +62,12 @@ class AuthEnquiry extends Message implements Contract
             'response_format' => 'nullable',
         ])->validate();
 
-        $tranction = FpxTransaction::where('reference_id', $data['reference_id'])->firstOrfail();
+        $tranction = FpxTransaction::query()
+            ->where('reference_id', $data['reference_id'])
+            ->when(isset($options['unique_id']), function ($q) use ($options) {
+                $q->where('unique_id', $options['unique_id']);
+            })
+            ->firstOrFail();
 
         $data = $tranction->request_payload;
 
