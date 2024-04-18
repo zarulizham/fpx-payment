@@ -29,14 +29,14 @@ class PaymentController extends Controller
 		$banks = Bank::query()->select('bank_id', 'name', 'short_name', 'status');
 
 		if ($request->type) {
-			$banks->types($request->type == '01' ? ['B2C'] : ['B2B']);
+			$banks->type($request->type == '01' ? 'B2C' : 'B2B');
 		}
 
 		if ($request->name) {
 			$banks->where('name', 'LIKE', "%$request->name%");
 		}
 
-		$banks = $banks->orderBy('short_name', 'ASC')->get();
+		$banks = $banks->orderBy('position', 'ASC')->get();
 
 		return response()->json([
 			'banks' => $banks,

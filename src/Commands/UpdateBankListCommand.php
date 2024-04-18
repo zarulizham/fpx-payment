@@ -2,9 +2,9 @@
 
 namespace JagdishJP\FpxPayment\Commands;
 
+use Illuminate\Console\Command;
 use JagdishJP\FpxPayment\Messages\BankEnquiry;
 use JagdishJP\FpxPayment\Models\Bank;
-use Illuminate\Console\Command;
 
 class UpdateBankListCommand extends Command
 {
@@ -41,53 +41,56 @@ class UpdateBankListCommand extends Command
     {
         $handler = new BankEnquiry($this->option('flow'));
 
+        $type = $this->option('flow') == '01' ? 'B2C' : 'B2B';
+
         $dataList = $handler->getData();
 
         try {
             $response = $handler->connect($dataList);
 
-            $token = strtok($response, "&");
+            $token = strtok($response, '&');
             $bankList = $handler->parseBanksList($token);
 
-            if ($this->option('debug')) {
-                \Log::debug([
-                    'data_list' => $dataList->toJson(),
-                    'response' => $response,
-                ]);
-            }
-
             if ($bankList === false) {
-                $this->error('We could not find any data');
-                return;
+                // can be account inactive.
+                $this->error('We could not find any data.');
+
+                return 0;
             }
 
             $bar = $this->output->createProgressBar(count($bankList));
             $bar->start();
 
             foreach ($bankList as $key => $status) {
-                $bankId = explode(" - ", $key)[1];
-                $bank = $handler->getBanks($bankId);
+                $bankId = explode(' - ', $key)[1];
+                $bank = $handler->getBanks($bankId, $type);
                 if (empty($bank)) {
-                    logger("Bank Not Found: ", [$bankId]);
+                    // logger("Bank Not Found: ", [$bankId]);
                     continue;
                 }
-                Bank::updateOrCreate(['bank_id' => $bankId], [
+                Bank::updateOrCreate([
+                    'bank_id' => $bankId,
+                    'type' => $bank['type'],
+                ], [
                     'status' => $status == 'A' ? 'Online' : 'Offline',
                     'name' => $bank['name'],
                     'short_name' => $bank['short_name'],
-                    'type' => $bank['type'] ?? [],
+                    'position' => $bank['position'] ?? 0,
                 ]);
 
                 $bar->advance();
             }
 
             $bar->finish();
+            $this->info("\nBank list has been updated for ".$type);
             $this->newLine();
+
+            return 1;
         } catch (\Exception $e) {
-            logger("Bank Updating failed", [
+            logger('Bank Updating failed', [
                 'message' => $e->getMessage(),
             ]);
-            $this->error("request failed due to " . $e->getMessage());
+            $this->error('request failed due to '.$e->getMessage());
             throw $e;
         }
     }

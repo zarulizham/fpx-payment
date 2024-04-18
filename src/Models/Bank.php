@@ -21,15 +21,7 @@ class Bank extends Model
 		'short_name',
 		'status',
 		'type',
-	];
-
-	/**
-	 * The attributes that should be cast to native types.
-	 *
-	 * @var array
-	 */
-	protected $casts = [
-		'type' => 'array',
+		'position',
 	];
 
 	/**
@@ -40,7 +32,8 @@ class Bank extends Model
 	 */
 	public function scopeIsB2B($query)
 	{
-		return $query->whereJsonContains('type', ['B2B']);
+		return $query->where('type', 'B2B');
+		// return $query->whereJsonContains('type', ['B2B']);
 	}
 
 	/**
@@ -51,7 +44,7 @@ class Bank extends Model
 	 */
 	public function scopeIsB2C($query)
 	{
-		return $query->whereJsonContains('type', ['B2C']);
+		return $query->where('type', 'B2C');
 	}
 
 	/**
@@ -60,9 +53,9 @@ class Bank extends Model
 	 * @param  \Illuminate\Database\Eloquent\Builder $query
 	 * @return \Illuminate\Database\Eloquent\Builder
 	 */
-	public function scopeTypes($query, $type)
+	public function scopeType($query, $type)
 	{
-		return $query->whereJsonContains('type', $type);
+		return $query->where('type', $type);
 	}
 
 	/**

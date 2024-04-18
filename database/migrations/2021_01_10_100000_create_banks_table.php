@@ -19,7 +19,8 @@ class CreateBanksTable extends Migration
             $table->string('bank_id');
             $table->string('name');
             $table->string('short_name');
-            $table->json('type')->nullable();
+            $table->string('type', 5)->nullable();
+            $table->integer('position')->nullable();
             $table->string('status')->default(Bank::STATUS_OFFLINE);
             $table->timestamps();
         });
