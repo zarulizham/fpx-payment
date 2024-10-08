@@ -69,7 +69,7 @@ class AuthorizationConfirmation extends Message implements Contract
             if ($this->debitResponseStatus == self::STATUS_SUCCESS_CODE) {
                 return [
                     'status' => self::STATUS_SUCCESS,
-                    'message' => 'Payment is successfull',
+                    'message' => 'Payment is successful',
                     'transaction_id' => $this->foreignId,
                     'reference_id' => $this->reference,
                     'amount' => $this->amount,

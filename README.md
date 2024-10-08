@@ -218,7 +218,7 @@ You must use `response` field to display receipt. `fpx_response` is added if you
 {
   "response": {
     "status": "succeeded/failed/pending",
-    "message": "Payment is successfull",
+    "message": "Payment is successful",
     "transaction_id": "",
     "reference_id": "",
     "amount": "",
