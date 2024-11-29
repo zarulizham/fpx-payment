@@ -12,7 +12,8 @@
     "homepage": "https://github.com/jagdish-j-p/fpx-payment",
     "license": "MIT",
     "type": "library",
-    "authors": [{
+    "authors": [
+        {
             "name": "Jagdish J P",
             "email": "jagdish1230@gmail.com",
             "role": "Owner"
@@ -27,7 +28,6 @@
         "php": "^7.4|^8.0",
         "illuminate/support": "^8.0|^9.0|^10.0",
         "nesbot/carbon": "^2.48.0",
-        "laravelcollective/html": "^6.2",
         "monarobase/country-list": "^3.2",
         "eastwest/json": "^3.0"
     },
