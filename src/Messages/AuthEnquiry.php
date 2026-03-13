@@ -117,8 +117,6 @@ class AuthEnquiry extends Message implements Contract
 
     /**
      * returns collection of all fields
-     *
-     * @return collection
      */
     public function list()
     {
@@ -152,7 +150,7 @@ class AuthEnquiry extends Message implements Contract
      */
     public function parseResponse($response)
     {
-        if ($response == 'ERROR' || !$response) {
+        if ($response == 'ERROR' || ! $response) {
             return false;
         }
 
@@ -258,8 +256,6 @@ class AuthEnquiry extends Message implements Contract
 
     /**
      * returns collection of all response fields
-     *
-     * @return collection
      */
     public function responseList()
     {
@@ -269,12 +265,12 @@ class AuthEnquiry extends Message implements Contract
             'fpx_buyerIban' => $this->buyerIBAN ?? '',
             'fpx_buyerId' => $this->buyerId ?? '',
             'fpx_buyerName' => $this->buyerName ?? '',
-            'fpx_creditAuthCode' => $this->buyerMakerName ?? '',
-            'fpx_creditAuthNo' => $this->buyerMakerName ?? '',
-            'fpx_debitAuthCode' => $this->buyerMakerName ?? '',
-            'fpx_debitAuthNo' => $this->buyerMakerName ?? '',
-            'fpx_fpxTxnId' => $this->buyerMakerName ?? '',
-            'fpx_fpxTxnTime' => $this->buyerMakerName ?? '',
+            'fpx_creditAuthCode' => $this->creditResponseStatus ?? '',
+            'fpx_creditAuthNo' => $this->creditResponseNumber ?? '',
+            'fpx_debitAuthCode' => $this->debitResponseStatus ?? '',
+            'fpx_debitAuthNo' => $this->debitResponseNumber ?? '',
+            'fpx_fpxTxnId' => $this->foreignId ?? '',
+            'fpx_fpxTxnTime' => $this->foreignTimestamp ?? '',
             'fpx_makerName' => $this->buyerMakerName ?? '',
             'fpx_msgToken' => $this->flow ?? '',
             'fpx_msgType' => $this->type ?? '',

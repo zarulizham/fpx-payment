@@ -131,8 +131,6 @@ class AuthorizationConfirmation extends Message implements Contract
 
     /**
      * returns collection of all fields
-     *
-     * @return collection
      */
     public function list()
     {

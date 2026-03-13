@@ -52,7 +52,7 @@ class AuthorizationRequest extends Message implements Contract
 				'response_format' => 'nullable',
 				'remark' => 'nullable',
 				'additional_params' => 'nullable',
-				'amount' => 'required|numeric|between:' . Config::get('fpx.min_amount', '1') . ',' . Config::get('fpx.max_amount', '30000'),
+				'amount' => 'required|numeric|between:'.Config::get('fpx.min_amount', '1').','.Config::get('fpx.max_amount', '30000'),
 				'customer_name' => 'required',
 				'customer_email' => 'required',
 				'bank_id' => 'required',
@@ -99,8 +99,6 @@ class AuthorizationRequest extends Message implements Contract
 
 	/**
 	 * returns collection of all fields
-	 *
-	 * @return collection
 	 */
 	public function list()
 	{
